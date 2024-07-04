@@ -28,5 +28,9 @@ func main() {
 	}
 
 	http.HandleFunc("/", todosHandler)
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	log.Println("Starting server on :8000")
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }
