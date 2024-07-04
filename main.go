@@ -19,6 +19,10 @@ func main() {
 				Id:      1,
 				Message: "Learn Go",
 			},
+			Todo{
+				Id:      2,
+				Message: "Learn HTMX",
+			},
 		},
 	}
 
