@@ -9,21 +9,17 @@
 </head>
 <body>
     <div class="container">
-        <form>
+        <h1>Todo List</h1>
+        <ul id="todo-list">
+            {{range .Todos}}
+            {{template "todo-list-element" .}}
+            {{end}}
+        </ul>
+        <form hx-swap="beforeend" hx-target="#todo-list" hx-post="/add-todo">
             <label for="message">Message:</label>
             <input type="text" name="message" id="message">
             <button type="submit">Create</button>
         </form>
-        <h1>Todo List</h1>
-        <ul>
-            {{range .Todos}}
-            <li>
-                <div class="todo-id">{{.Id}}</div>
-                <div class="todo-message">{{.Message}}</div>
-            </li>
-            {{end}}
-        </ul>
-        
     </div>
 </body>
 </html>
